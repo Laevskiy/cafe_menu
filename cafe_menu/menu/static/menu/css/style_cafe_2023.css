@@ -1,0 +1,243 @@
+body {color:black;
+      background:#cfcfcf;
+      }
+
+.wrapper{display:grid;
+         grid-template-columns:1fr 2fr 1fr;
+         grid-template-rows:80px 600px 80px;
+         grid-gap:3px;
+}
+.ob {background: #919192;
+     border-radius: 10px;
+}
+
+.box_left{ grid-row:1/4;
+
+}
+.box_head{grid-column:1/5;
+          display:grid;
+
+          grid-gap:5px;
+}
+.box_main{grid-column:1/4;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 500px 100px;
+  grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+  align-items: center;
+  justify-items: center;
+  color:white;
+
+  background: url("photo_for_site/photo_s_002.jpg")
+
+
+}
+.box_under{grid-column:1/4;
+}
+.ob_btn{color:black;
+        background:#bbbbbb;
+        margin:8px;
+        margin-top:30px;
+        margin-bottom:30px;
+        font-size: 20px;
+        border-radius:5px;
+
+}
+.ob_btn:hover{background:#b1b3b1;
+              color:white;
+              font-size: 22px;
+}
+
+.but{display:grid;
+     grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+     grid-gap:5px;
+
+}
+
+/* Контейнер <div> - необходим для размещения выпадающего содержимого */
+.dropdown {
+  position: relative;
+  display: block;
+  color:black;
+background:#bbbbbb;
+        margin:8px;
+        margin-top:30px;
+        margin-bottom:30px;
+        font-size: 20px;
+        border-radius:5px;
+
+
+
+
+
+
+
+}
+
+/* Выпадающее содержимое (скрыто по умолчанию) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index:1000;
+
+
+ }
+
+/* Ссылки внутри выпадающего списка */
+.dropdown-content a {
+  color: black;
+  padding: 8px;
+  text-decoration: none;
+  display: block;
+
+}
+
+/* Изменение цвета выпадающих ссылок при наведении курсора */
+.dropdown-content button:hover {background-color:#b5b5b5;
+}
+
+/* Показать выпадающее меню при наведении курсора */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Изменение цвета фона кнопки раскрывающегося списка при отображении содержимого раскрывающегося списка */
+.dropdown:hover .dropbtn {background-color:#9c9c9c;}
+
+
+/*ПОДКЛЮЧАЕМ КАРУСЕЛЬ*/
+main#carousel {
+  grid-row: 1 / 2;
+  grid-column: 1 / 8;
+  width: 100vw;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  --items: 5;
+  --middle: 3;
+  --position: 2;
+  pointer-events: none;
+}
+
+div.item {
+  position: absolute;
+  width: 350px;
+  height: 480px;
+  background-color: coral;
+  --r: calc(var(--position) - var(--offset));
+  --abs: max(calc(var(--r) * -1), var(--r));
+  transition: all 0.25s linear;
+  transform: rotateY(calc(-10deg * var(--r)))
+    translateX(calc(-300px * var(--r)));
+  z-index: calc((var(--position) - var(--abs)));
+}
+
+div.item:nth-of-type(1) {
+  --offset: 1;
+  background-color: #90f1ef;
+}
+div.item:nth-of-type(2) {
+  --offset: 2;
+  background-color: #ff70a6;
+}
+div.item:nth-of-type(3) {
+  --offset: 3;
+  background-color: #ff9770;
+}
+div.item:nth-of-type(4) {
+  --offset: 4;
+  background-color: #ffd670;
+}
+div.item:nth-of-type(5) {
+  --offset: 5;
+  background-color: #e9ff70;
+}
+
+input:nth-of-type(1) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(1):checked ~ main#carousel {
+  --position: 1;
+}
+
+input:nth-of-type(2) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(2):checked ~ main#carousel {
+  --position: 2;
+}
+
+input:nth-of-type(3) {
+  grid-column: 4 /5;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(3):checked ~ main#carousel {
+  --position: 3;
+}
+
+input:nth-of-type(4) {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(4):checked ~ main#carousel {
+  --position: 4;
+}
+
+input:nth-of-type(5) {
+  grid-column: 6 / 7;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(5):checked ~ main#carousel {
+  --position: 5;
+}
+
+.box_left img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        object-position: center;
+}
+
+.box_main img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        object-position: center;
+}
+
+.item img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        object-position: center;
+}
+
+.box_main_02 {grid-column:2/4;
+  margin: 0;
+  color:white;
+
+  background: url("photo_for_site/photo_s_002.jpg")
+}
+
+.ob_btn_i {
+color:black;
+background:#bbbbbb;
+font-size: 20px;
+border-radius:5px;
+width: 100%;
+}
+
+.ob_btn_i:hover{background:#b1b3b1;
+              color:white;
+              font-size: 22px;
+}
+
+
+
