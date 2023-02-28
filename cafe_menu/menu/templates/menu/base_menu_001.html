@@ -17,39 +17,28 @@
             <div class = 'but'>
 
                 {% for i in menu %}
-                {% if i == 'Меню' %}
+                {% if i.name == 'Меню' %}
                  <div class="dropdown">
 
-                <button class = 'ob_btn_i' > Меню </button>
+                <button class = 'ob_btn_i' onclick= "location.href = '/menu'" > Меню </button>
+
                     <div class="dropdown-content">
-                       <a> <button class = 'ob_btn_i' href="#">Салаты</button> </a>
-                       <a> <button class = 'ob_btn_i' href="#">Супы</button> </a>
-                        <a><button class = 'ob_btn_i' href="#">Горячие блюда</button> </a>
-                       <a> <button class = 'ob_btn_i' href="#">Напитки</button> </a>
+                        {% for n in menu_v %}
+                       <a> <button class = 'ob_btn_i' href="">{{n.name}}</button> </a>
+                        {% endfor %}
                     </div>
                 </div>
 
                 {% else %}
-                <button class = 'ob_btn'>{{i}}</button>
+                <button class = 'ob_btn' onclick= "location.href = '{{i.url}}'" >{{i.name}}</button>
                 {% endif %}
                {% endfor %}
             </div>
         </div>
         <div class = 'box_main ob'>
-            <input type="radio" name="position" checked />
-            <input type="radio" name="position" />
-            <input type="radio" name="position" />
-            <input type="radio" name="position" />
-            <input type="radio" name="position" />
+        {% block content%}
 
-            <main id="carousel">
-                <div class="item"><img src = '{% static "menu/images/1407192823.jpg"%}'></div>
-                <div class="item"><img src = '{% static "menu/images/goroh.jpg"%}'></div>
-                <div class="item"><img src = '{% static "menu/images/blin.jpeg"%}'></div>
-                <div class="item"><img src = '{% static "menu/images/machanka.jpg"%}'></div>
-                <div class="item"><img src = '{% static "menu/images/mors.jpeg"%}'></div>
-
-            </main>
+        {% endblock %}
         </div>
         <div class = 'box_under ob'>box_under</div>
 

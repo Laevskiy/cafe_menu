@@ -1,0 +1,19 @@
+
+{% extends 'menu/base_menu_001.html' %}
+{% load static %}
+{% block content %}
+<input type="radio" name="position" checked />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+
+            <main id="carousel">
+                <div class="item"><img src = '{% static "menu/images/1407192823.jpg"%}'></div>
+                <div class="item"><img src = '{% static "menu/images/goroh.jpg"%}'></div>
+                <div class="item"><img src = '{% static "menu/images/blin.jpeg"%}'></div>
+                <div class="item"><img src = '{% static "menu/images/machanka.jpg"%}'></div>
+                <div class="item"><img src = '{% static "menu/images/mors.jpeg"%}'></div>
+
+            </main>
+{% endblock %}
