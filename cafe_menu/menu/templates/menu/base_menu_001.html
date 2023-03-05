@@ -24,7 +24,7 @@
 
                     <div class="dropdown-content">
                         {% for n in menu_v %}
-                       <a> <button class = 'ob_btn_i' href="">{{n.name}}</button> </a>
+                       <button class = 'ob_btn_i' onclick= "location.href = '/menu/{{n.slug_category}}'">{{n.name_category}}</button>
                         {% endfor %}
                     </div>
                 </div>

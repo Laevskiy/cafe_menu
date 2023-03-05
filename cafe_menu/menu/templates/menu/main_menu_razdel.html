@@ -1,0 +1,10 @@
+{% extends 'menu/base_menu_001.html' %}
+{% load static %}
+{% block content %}
+<h1> {{slug_category}}</h1>
+<h2> {{ cat.pk }} </h2>
+{% for i in m %}
+{{ i.name_dishes}}
+{% endfor %}
+
+{% endblock %}
