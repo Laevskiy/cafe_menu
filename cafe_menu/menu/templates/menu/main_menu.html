@@ -3,6 +3,7 @@
 {% block content %}
 
 {% for i in p %}
-{{ i.name_category }}<br>
+<button class = 'ob_btn_i' onclick= "location.href = '{{i.slug_category}}'" >  {{ i.name_category }}  </button><br>
+
 {% endfor%}
 {% endblock %}

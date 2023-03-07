@@ -20,7 +20,7 @@ def home (request):
                    {'title':'Главная страница', 'menu': menu,'menu_v':menu_v})
 
 def about(request):
-    return render (request,'menu/about.html',{'title':'Главное меню', 'menu': menu,'menu_v':menu_v})
+    return render (request,'menu/about.html',{'title':'О нас', 'menu': menu,'menu_v':menu_v})
 
 
 def main_menu(request):
@@ -28,15 +28,23 @@ def main_menu(request):
     return render (request,'menu/main_menu.html',{'title':'Главное меню', 'menu': menu,'menu_v':menu_v,'p':p})
 
 def contacts(request):
-    return render (request,'menu/contacts.html',{'title':'Главное меню', 'menu': menu,'menu_v':menu_v})
+    return render (request,'menu/contacts.html',{'title':'Контакты', 'menu': menu,'menu_v':menu_v})
 
 def order(request):
-    return render (request,'menu/order.html',{'title':'Главное меню', 'menu': menu,'menu_v':menu_v})
+    return render (request,'menu/order.html',{'title':'Заказ', 'menu': menu,'menu_v':menu_v})
 
 def main_menu_razdel (request, slug_category):
     cat = Category.objects.filter(slug_category = slug_category)
     number = cat[0].pk
     m = Dishes.objects.filter(name_category_id = number)
-    return render (request,'menu/main_menu_razdel.html',{'title':'Главное меню',
+    return render (request,'menu/main_menu_razdel.html',{'title':slug_category,
                                                          'menu': menu,'menu_v':menu_v,'slug_category':slug_category,
-                                                         'm':m, 'number':number})
+                                                         'm':m,})
+
+def recept(request,name):
+    d = Dishes.objects.filter (slug_dishes = name)
+    u = d[0].name_dishes
+    n = d[0].pk
+    ing = Recept.objects.filter(Dish_id = n)
+    return render (request, 'menu/recept.html',{'title':u,
+                                                'menu': menu,'menu_v':menu_v,'ing':ing,'u':u})

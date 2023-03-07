@@ -8,5 +8,6 @@ urlpatterns = [
     path('order/', order, name = 'order'),
     path('menu/', main_menu, name = 'main_menu'),
     path('menu/<slug:slug_category>/', main_menu_razdel, name = 'main_menu_razdel'),
+    path('recept/<slug:name>/', recept, name = 'recept'),
 
 ]
