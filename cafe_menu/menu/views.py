@@ -1,6 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
+from menu.forms import AddOrderForm
 from menu.models import *
 
 menu = [ {'name':'Главная','url':'/'},
@@ -31,7 +32,13 @@ def contacts(request):
     return render (request,'menu/contacts.html',{'title':'Контакты', 'menu': menu,'menu_v':menu_v})
 
 def order(request):
-    return render (request,'menu/order.html',{'title':'Заказ', 'menu': menu,'menu_v':menu_v})
+    order = AddOrderForm()
+    if request.method == 'POST':
+        order = AddOrderForm(request.POST)
+        if order.is_valid():
+             order.save()
+             return redirect('home')
+    return render (request,'menu/order.html',{'title':'Заказ', 'menu': menu,'menu_v':menu_v,'order':order})
 
 def main_menu_razdel (request, slug_category):
     cat = Category.objects.filter(slug_category = slug_category)

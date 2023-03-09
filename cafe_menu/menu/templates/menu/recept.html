@@ -1,11 +1,11 @@
-{% extends 'menu/base_menu_001.html' %}
+{% extends 'menu/base_menu_002.html' %}
 {% load static %}
 {% block content %}
 
 <h1>Рецепт {{ u }} :</h1>
 
 {% for i in ing%}
-{{i.Ingredients}} {{ i.kol }}
+{{i.Ingredients}} {{ i.kol }}<br>
 {% endfor %}
 
 {% endblock %}

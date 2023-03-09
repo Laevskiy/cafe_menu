@@ -30,3 +30,10 @@ class Recept (models.Model):
     Ingredients = models.ForeignKey(Ingredients,on_delete=models.CASCADE)
     kol = models.IntegerField ()
 
+class Orders (models.Model):
+    name_cus = models.CharField(max_length=255)
+    lastname_cus = models.CharField(max_length=255)
+    phone_cus = models.IntegerField ()
+    dish = models.ForeignKey(Dishes,on_delete=models.CASCADE)
+    kol_dish = models.IntegerField ()
+

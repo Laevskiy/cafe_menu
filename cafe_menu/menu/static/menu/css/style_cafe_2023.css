@@ -240,7 +240,8 @@ width: 100%;
 }
 
 .box_menu {margin: 0;
-           color: red;
+           color: black;
+           align-items: center;
 }
 
 

@@ -1,7 +1,7 @@
-{% extends 'menu/base_menu_001.html' %}
+{% extends 'menu/base_menu_002.html' %}
 {% load static %}
 {% block content %}
-
+<h1>{{slug_category}}</h1>
 {% for i in m %}
 <button class = 'ob_btn_i' onclick= "location.href = '/recept/{{i.slug_dishes}}'" > {{ i.name_dishes}} </button><br>
 
